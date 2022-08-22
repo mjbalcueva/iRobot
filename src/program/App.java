@@ -24,12 +24,13 @@ public class App {
     Robot iRobot = new Robot(map);
 
     System.out.println("iRobot is starting its journey facing " + iRobot.getDirection() + ".");
-    System.out.println("Press any commands to continue");
+    System.out.println("Press any commands to continue.");
 
     getDecision(iRobot, map);
   }
 
   private void getDecision(Robot robot, Grid map) {
+    System.out.print("↳ ");
     String action = console.nextLine().trim().toUpperCase();
 
     if (action.matches("W"))
@@ -47,7 +48,7 @@ public class App {
     else if (action.matches("H"))
       showHelp();
     else if (action.matches("M"))
-      map.viewGrid();
+      map.viewGrid(robot);
     else if (action.matches("R"))
       generateNewMap();
     else if (action.matches("X"))
@@ -77,7 +78,7 @@ public class App {
   }
 
   private void exit() {
-    System.out.println("iRobot has ended its journey");
+    System.out.println("iRobot has ended its journey.");
     System.exit(0);
   }
 }

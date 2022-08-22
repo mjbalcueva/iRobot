@@ -9,6 +9,12 @@ class Robot {
     this.map = map.table;
   }
 
+  /*
+   * Checks if the iRobot is out of bounds. If so, the iRobot has hit a wall.
+   * Checks if the iRobot is on an obstacle. If so, the iRobot has hit an obstacle.
+   * If the iRobot is not out of bounds and not on an obstacle, the iRobot moves to the
+   * new position.
+   */
   public boolean travel() {
     int x = position[0];
     int y = position[1];

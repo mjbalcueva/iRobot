@@ -3,7 +3,7 @@ package program;
 class Robot {
   private Direction direction = Direction.EAST;
   private int[][] map;
-  private int[] position = {0, 0};
+  int[] position = {0, 0};
 
   Robot(Grid map) {
     this.map = map.table;
@@ -19,17 +19,17 @@ class Robot {
     int newY = y += direction.getY();
 
     boolean outOfBounds = (x < 0 || y < 0 || x > rows || y > cols);
-    if (outOfBounds || map[x][y] != 0) {
-      if (outOfBounds)
-        System.out.println("iRobot has hit a wall. Change direction");
-      if (map[x][y] != 0)
-        System.out.println("iRobot has hit an obstacle. Change direction");
+    if (outOfBounds) {
+      System.out.println("iRobot has hit a wall. Change direction.");
+      return false;
+    } else if (map[x][y] != 0) {
+      System.out.println("iRobot has hit an obstacle. Change direction.");
       return false;
     } else {
       position = new int[] {newX, newY};
       System.out.println("iRobot moved to: " + x + ", " + y);
+      return true;
     }
-    return true;
   }
 
   public void travel(int n) {

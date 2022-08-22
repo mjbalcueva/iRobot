@@ -6,7 +6,13 @@ public class Grid {
   private Random random = new Random();
   int[][] table;
 
-  // Creates a 2D array of random 0s and 1s.
+  /* 
+  * Create a new 2D array of integers.
+  * Create a new Random object.
+  * Initialize the array
+  * with random values of 0s and 1s.
+  * Set the initial position to 0.
+  */
   public Grid(int rows, int cols) {
     table = new int[rows][cols];
     for (int x = 0; x < table.length; x++) {
@@ -15,13 +21,14 @@ public class Grid {
         table[x][y] = nextCell == 0 ? 0 : 1;
       }
     }
-    table[0][0] = 0; // always set valid initial position
+    table[0][0] = 0;
   }
 
-  /**
-   * It prints the grid with the robot's position marked with an 'R' and the dirt marked with an 'X'
-   * 
-   * @param robot The robot object
+  /*
+   * Declars a 2D array of cells
+   * Creates a loop that iterates through the array
+   * Creates a loop that iterates through the array's inner array
+   * Prints the cell's contents.
    */
   void viewGrid(Robot robot) {
     System.out.println("\n--------------------------------------------------\n");
@@ -34,13 +41,11 @@ public class Grid {
     System.out.println("\n--------------------------------------------------\n");
   }
 
-  /**
-   * If the robot is at the current cell, print the robot's direction, otherwise print a dot or a
-   * block depending on the value of the cell
-   * 
-   * @param robot The robot object
-   * @param x the x coordinate of the cell
-   * @param y the y coordinate of the robot
+  /*
+   * Prints the table with the robot's position marked with an:
+   * "ᐱ" for NORTH, "ᐸ" for WEST, "ᐯ" for SOUTH, and "ᐳ" for EAST.
+   * Prints the table with the robot's position marked with an "•" for empty,
+   * and "■" for occupied.
    */
   private void printCell(Robot robot, int x, int y) {
     if (x == robot.position[0] && y == robot.position[1]) {

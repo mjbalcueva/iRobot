@@ -3,7 +3,7 @@ package program;
 class Robot {
   private Direction direction = Direction.EAST;
   private int[][] map;
-  int[] position = {0, 0};
+  private int[] position = {0, 0};
 
   Robot(Grid map) {
     this.map = map.table;
@@ -36,6 +36,7 @@ class Robot {
     for (int i = 0; i < n; i++) {
       travel();
     }
+    System.out.println();
   }
 
   public void changeDirection(String newDirection) {

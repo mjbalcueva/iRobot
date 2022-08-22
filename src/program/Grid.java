@@ -30,7 +30,7 @@ public class Grid {
    * Creates a loop that iterates through the array's inner array
    * Prints the cell's contents.
    */
-  void viewGrid(Robot robot) {
+  public void viewGrid(Robot robot) {
     System.out.println("\n--------------------------------------------------\n");
     for (int x = 0; x < table.length; x++) {
       for (int y = 0; y < table[x].length; y++) {
@@ -48,7 +48,7 @@ public class Grid {
    * and "■" for occupied.
    */
   private void printCell(Robot robot, int x, int y) {
-    if (x == robot.position[0] && y == robot.position[1]) {
+    if (x == robot.getPosition()[0] && y == robot.getPosition()[1]) {
       if (robot.getDirection().matches("NORTH"))
         System.out.print("ᐱ ");
       if (robot.getDirection().matches("WEST"))

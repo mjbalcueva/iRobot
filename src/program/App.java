@@ -33,14 +33,8 @@ public class App {
     System.out.print("↳ ");
     String action = console.nextLine().trim().toUpperCase();
 
-    if (action.matches("W"))
-      robot.changeDirection("W");
-    else if (action.matches("A"))
-      robot.changeDirection("A");
-    else if (action.matches("S"))
-      robot.changeDirection("S");
-    else if (action.matches("D"))
-      robot.changeDirection("D");
+    if (action.matches("[WASD]"))
+      robot.setDirection(action);
     else if (action.matches(""))
       robot.travel();
     else if (action.matches("\\d+"))
@@ -75,10 +69,11 @@ public class App {
     System.out.println("  R - Generate new map");
     System.out.println("  X - Exit program");
     System.out.println("--------------------------------------------------\n");
+    System.out.println("Press any commands to continue.");
   }
 
   private void exit() {
-    System.out.println("iRobot has ended its journey.");
+    System.out.println("\niRobot has ended its journey.");
     System.exit(0);
   }
 }

@@ -6,13 +6,9 @@ public class Grid {
   private Random random = new Random();
   int[][] table;
 
-  /* 
-  * Create a new 2D array of integers.
-  * Create a new Random object.
-  * Initialize the array
-  * with random values of 0s and 1s.
-  * Set the initial position to 0.
-  */
+  /* Creates a 2D array of integers with the specified number of rows and columns.
+   * Fills the array with random numbers values of 0s and 1s.
+   * Sets the value of the robot's starting position to 0. */
   public Grid(int rows, int cols) {
     table = new int[rows][cols];
     for (int x = 0; x < table.length; x++) {
@@ -24,12 +20,9 @@ public class Grid {
     table[0][0] = 0;
   }
 
-  /*
-   * Declars a 2D array of cells
-   * Creates a loop that iterates through the array
-   * Creates a loop that iterates through the array's inner array
-   * Prints the cell's contents.
-   */
+  /* Creates a for loop that iterates through the array.
+   * Creates a for loop that iterates through the array's inner array.
+   * Prints the cell's contents. */
   public void viewGrid(Robot robot) {
     System.out.println("\n--------------------------------------------------\n");
     for (int x = 0; x < table.length; x++) {
@@ -41,12 +34,9 @@ public class Grid {
     System.out.println("\n--------------------------------------------------\n");
   }
 
-  /*
-   * Prints the table with the robot's position marked with an:
-   * "ᐱ" for NORTH, "ᐸ" for WEST, "ᐯ" for SOUTH, and "ᐳ" for EAST.
-   * Prints the table with the robot's position marked with an "•" for empty,
-   * and "■" for occupied.
-   */
+  /* Checks if the cell is the robot's position.
+   * Checks if the cell is an obstacle or not.
+   * Prints the cell's contents. */
   private void printCell(Robot robot, int x, int y) {
     if (x == robot.getPosition()[0] && y == robot.getPosition()[1]) {
       if (robot.getDirection().matches("NORTH"))

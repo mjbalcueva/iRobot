@@ -9,12 +9,9 @@ class Robot {
     this.map = map.table;
   }
 
-  /*
-   * Checks if the iRobot is out of bounds. If so, the iRobot has hit a wall.
-   * Checks if the iRobot is on an obstacle. If so, the iRobot has hit an obstacle.
-   * If the iRobot is not out of bounds and not on an obstacle, the iRobot moves to the
-   * new position.
-   */
+  /* Checks if the next cell is out of bounds. If so, the iRobot has hit a wall.
+   * Checks if the content of the next cell = 1. If so, the iRobot has hit an obstacle.
+   * If the next cell is not out of bounds and not an obstacle, iRobot moves there.*/
   public boolean travel() {
     int x = position[0];
     int y = position[1];
@@ -38,6 +35,9 @@ class Robot {
     }
   }
 
+  /* Creates a for loop that runs n times.
+   * Creates a method call that runs n times.
+   * Prints a new line after the method call.*/
   public void travel(int n) {
     for (int i = 0; i < n; i++) {
       travel();
@@ -45,6 +45,9 @@ class Robot {
     System.out.println();
   }
 
+  /* Checks if the input direction is W, A, S, or D.
+   * Changes the direction to the inputted new direction.
+   * Prints out an updated direction.*/
   public void changeDirection(String newDirection) {
     if (newDirection.matches("W"))
       direction = Direction.NORTH;

@@ -23,6 +23,7 @@ class Robot {
     boolean outOfBounds = (x < 0 || y < 0 || x > rows || y > cols);
 
     if (outOfBounds || map[x][y] != 0) {
+      System.out.println();
       String errorMessage = outOfBounds ? "iRobot has hit a wall." : "iRobot has hit an obstacle.";
       System.out.println(errorMessage + " Change direction.");
       return false;
@@ -37,7 +38,6 @@ class Robot {
    * Creates a method call that runs n times.
    * While the iRobot is not out of bounds and not hitting an obstacle, it moves.*/
   public void travel(int n) {
-    System.out.println();
     for (int i = 0; i < n; i++) {
       if (!travel())
         break;
